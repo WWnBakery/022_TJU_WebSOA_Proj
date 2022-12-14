@@ -13,8 +13,9 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   int _currentIndex = 0;
-  final List<Widget> _pages = const [
-    HomePage(),
+  final List<Widget> _pages = [
+    //
+    AppBarSearch(),
     LivePage(),
     MyTickets(),
     Mine()
@@ -22,9 +23,17 @@ class _TabsState extends State<Tabs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Test")),
+      // appBar: AppBar(title: const Text("Test")),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          fixedColor: (Color.fromRGBO(241, 7, 75, 1)),
+          backgroundColor: Color.fromRGBO(8, 11, 32, 1),
+          unselectedItemColor: (Color.fromARGB(255, 83, 99, 131)),
+          selectedFontSize: 11,
+          unselectedFontSize: 11,
+          showUnselectedLabels: true,
+          iconSize: 30,
           currentIndex: _currentIndex,
           onTap: (index) {
             setState(() {
@@ -34,9 +43,9 @@ class _TabsState extends State<Tabs> {
           },
           items: const [
             BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: "首页",
-                backgroundColor: Colors.blue),
+              icon: Icon(Icons.home),
+              label: "首页",
+            ),
             BottomNavigationBarItem(
               icon: Icon(Icons.visibility),
               label: "现场",
